@@ -1,0 +1,44 @@
+$date
+	Fri Apr 10 09:26:50 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module atividade1_tb $end
+$var wire 8 ! val_out [7:0] $end
+$var reg 8 " val_in [7:0] $end
+$scope module uut $end
+$var wire 8 # val_in [7:0] $end
+$var wire 8 $ val_out [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1 $
+b0 #
+b0 "
+b1 !
+$end
+#100
+b10 !
+b10 $
+b1 "
+b1 #
+#200
+b10000 !
+b10000 $
+b1111 "
+b1111 #
+#300
+b0 !
+b0 $
+b11111111 "
+b11111111 #
+#400

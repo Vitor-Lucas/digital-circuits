@@ -1,0 +1,62 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x6377116dbb50 .scope module, "atividade3_tb" "atividade3_tb" 2 1;
+ .timescale 0 0;
+v0x6377116f0990_0 .var "val_in", 31 0;
+v0x6377116f0a70_0 .net "val_out_16", 15 0, L_0x6377116f0eb0;  1 drivers
+v0x6377116f0b10_0 .net "val_out_32", 31 0, L_0x6377116f0da0;  1 drivers
+v0x6377116f0be0_0 .net "val_out_4", 3 0, L_0x6377116f10b0;  1 drivers
+v0x6377116f0cb0_0 .net "val_out_8", 7 0, L_0x6377116f0fc0;  1 drivers
+S_0x6377116dbce0 .scope module, "uut" "atividade3" 2 13, 3 1 0, S_0x6377116dbb50;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "val_in";
+    .port_info 1 /OUTPUT 32 "val_out_32";
+    .port_info 2 /OUTPUT 16 "val_out_16";
+    .port_info 3 /OUTPUT 8 "val_out_8";
+    .port_info 4 /OUTPUT 4 "val_out_4";
+L_0x6377116f0da0 .functor BUFZ 32, v0x6377116f0990_0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+v0x6377116dbec0_0 .net "val_in", 31 0, v0x6377116f0990_0;  1 drivers
+v0x6377116f0540_0 .net "val_out_16", 15 0, L_0x6377116f0eb0;  alias, 1 drivers
+v0x6377116f0620_0 .net "val_out_32", 31 0, L_0x6377116f0da0;  alias, 1 drivers
+v0x6377116f06e0_0 .net "val_out_4", 3 0, L_0x6377116f10b0;  alias, 1 drivers
+v0x6377116f07c0_0 .net "val_out_8", 7 0, L_0x6377116f0fc0;  alias, 1 drivers
+L_0x6377116f0eb0 .part v0x6377116f0990_0, 0, 16;
+L_0x6377116f0fc0 .part v0x6377116f0990_0, 0, 8;
+L_0x6377116f10b0 .part v0x6377116f0990_0, 0, 4;
+    .scope S_0x6377116dbb50;
+T_0 ;
+    %vpi_call 2 9 "$dumpfile", "sim/atividade3_tb.vcd" {0 0 0};
+    %vpi_call 2 10 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x6377116dbb50 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x6377116dbb50;
+T_1 ;
+    %vpi_call 2 22 "$monitor", "Time=%0d | val_in=%d | val_out_32=%d | val_out_16=%d | val_out_8=%d | val_out_4=%d", $time, v0x6377116f0990_0, v0x6377116f0b10_0, v0x6377116f0a70_0, v0x6377116f0cb0_0, v0x6377116f0be0_0 {0 0 0};
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x6377116f0990_0, 0, 32;
+T_1.0 ;
+    %load/vec4 v0x6377116f0990_0;
+    %cmpi/u 50, 0, 32;
+    %jmp/0xz T_1.1, 5;
+    %delay 10, 0;
+    %load/vec4 v0x6377116f0990_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x6377116f0990_0, 0, 32;
+    %jmp T_1.0;
+T_1.1 ;
+    %vpi_call 2 29 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "src/atividade3_tb.v";
+    "src/atividade3.v";
