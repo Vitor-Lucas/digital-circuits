@@ -1,0 +1,62 @@
+# Aula 05 - Introdução à Álgebra Booleana e Portas Lógicas
+
+## Descrição
+
+Este projeto explora os conceitos fundamentais de **álgebra booleana** e demonstra diferentes formas de representar funções lógicas em Verilog. Trabalha com uma função booleana de três variáveis e a implementa em múltiplas formas.
+
+### Atividade 1: Formas Canônicas da Álgebra Booleana
+
+Implementa uma função booleana de 3 variáveis em três formas diferentes usando operadores lógicos:
+- **Soma de Produtos (SOP)**: Forma disjuntiva normal
+- **Produtos de Soma (POS)**: Forma conjuntiva normal
+- **Forma Simplificada**: Redução utilizando identidades da álgebra booleana
+
+**Função**: F(A,B,C) = Σ(0,1,2,3) ou F = ~C
+
+### Atividade 2: Implementação com Portas Lógicas Instantiadas
+
+Implementa a mesma função lógica da atividade 1, mas utilizando **portas lógicas primitivas** (NOT, AND, OR) ao invés de operadores:
+- Cada porta NOT, AND e OR é instanciada separadamente
+- Usa fios internos para conectar as portas
+- Demonstra como circuitos digitais reais são construídos
+
+**Aplicação**: Compreender como abstrações de alto nível (operadores) mapeiam para circuitos físicos de baixo nível (portas lógicas).
+
+## Estrutura do Projeto
+
+```
+aula_05/
+├── Makefile                 # Script de automação
+├── README                   # Este arquivo
+├── src/
+│   ├── atividade1.v        # Formas canônicas usando operadores lógicos
+│   ├── atividade1_tb.v     # Testbench da atividade 1
+│   ├── atividade2.v        # Portas lógicas instantiadas
+│   └── atividade2_tb.v     # Testbench da atividade 2
+├── sim/
+│   ├── atividade1_tb.vcd   # Formas de onda da atividade 1
+│   └── atividade2_tb.vcd   # Formas de onda da atividade 2
+└── .outputs/
+    └── simulacao.vvp       # Arquivo compilado
+```
+
+## Conceitos Abordados
+
+- **Tabela Verdade**: Como uma função lógica se comporta com todas as combinações de entrada
+- **Forma Canônica SOP**: Soma dos mintérminos
+- **Forma Canônica POS**: Produto dos maxtérminos
+- **Simplificação Booleana**: Redução do número de termos usando álgebra booleana
+- **Portas Lógicas**: NOT, AND, OR - blocos construtores de circuitos digitais
+
+## Como Executar
+
+```bash
+make all
+```
+
+Para visualizar as formas de onda:
+
+```bash
+gtkwave sim/atividade1_tb.vcd
+gtkwave sim/atividade2_tb.vcd
+```

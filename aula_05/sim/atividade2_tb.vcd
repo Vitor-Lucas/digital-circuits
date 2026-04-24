@@ -1,0 +1,126 @@
+$date
+	Fri Apr 24 09:20:44 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module atividade2_tb $end
+$var wire 1 ! fs $end
+$var wire 1 " fm $end
+$var wire 1 # fM $end
+$var reg 1 $ A $end
+$var reg 1 % B $end
+$var reg 1 & C $end
+$scope module uut $end
+$var wire 1 $ A $end
+$var wire 1 % B $end
+$var wire 1 & C $end
+$var wire 1 ' WM $end
+$var wire 1 ( Wm $end
+$var wire 1 ) XM $end
+$var wire 1 * Xm $end
+$var wire 1 + YM $end
+$var wire 1 , Ym $end
+$var wire 1 - ZM $end
+$var wire 1 . Zm $end
+$var wire 1 # fM $end
+$var wire 1 " fm $end
+$var wire 1 ! fs $end
+$var wire 1 / not_A $end
+$var wire 1 0 not_B $end
+$var wire 1 1 not_C $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+11
+10
+1/
+0.
+1-
+0,
+1+
+1*
+1)
+0(
+1'
+0&
+0%
+0$
+1#
+1"
+1!
+$end
+#10
+0"
+0#
+0*
+0)
+01
+0!
+1&
+#20
+1"
+1,
+1#
+11
+1!
+00
+1)
+0&
+1%
+#30
+0"
+0#
+0,
+0+
+01
+0!
+1&
+#40
+1#
+1"
+1.
+11
+1!
+10
+1-
+0/
+1+
+0&
+0%
+1$
+#50
+0"
+0#
+0.
+0-
+01
+0!
+1&
+#60
+1"
+1(
+1#
+11
+1!
+00
+1-
+0&
+1%
+#70
+0"
+0#
+0(
+0'
+01
+0!
+1&
+#80

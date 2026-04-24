@@ -1,0 +1,129 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x653f14632860 .scope module, "atividade2_tb" "atividade2_tb" 2 1;
+ .timescale 0 0;
+v0x653f1464aaa0_0 .var "A", 0 0;
+v0x653f1464ab60_0 .var "B", 0 0;
+v0x653f1464ac30_0 .var "C", 0 0;
+v0x653f1464ad30_0 .net "fM", 0 0, L_0x653f1464bbf0;  1 drivers
+v0x653f1464ae00_0 .net "fm", 0 0, L_0x653f1464b620;  1 drivers
+v0x653f1464aea0_0 .net "fs", 0 0, L_0x653f1464bd30;  1 drivers
+S_0x653f146329f0 .scope module, "uut" "atividade2" 2 12, 3 1 0, S_0x653f14632860;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "fm";
+    .port_info 4 /OUTPUT 1 "fM";
+    .port_info 5 /OUTPUT 1 "fs";
+L_0x653f1464af70 .functor NOT 1, v0x653f1464aaa0_0, C4<0>, C4<0>, C4<0>;
+L_0x653f1464b060 .functor NOT 1, v0x653f1464ab60_0, C4<0>, C4<0>, C4<0>;
+L_0x653f1464b120 .functor NOT 1, v0x653f1464ac30_0, C4<0>, C4<0>, C4<0>;
+L_0x653f1464b1e0 .functor AND 1, L_0x653f1464af70, L_0x653f1464b060, L_0x653f1464b120, C4<1>;
+L_0x653f1464b3a0 .functor AND 1, L_0x653f1464af70, v0x653f1464ab60_0, L_0x653f1464b120, C4<1>;
+L_0x653f1464b410 .functor AND 1, v0x653f1464aaa0_0, L_0x653f1464b060, L_0x653f1464b120, C4<1>;
+L_0x653f1464b4f0 .functor AND 1, v0x653f1464aaa0_0, v0x653f1464ab60_0, L_0x653f1464b120, C4<1>;
+L_0x653f1464b620 .functor OR 1, L_0x653f1464b1e0, L_0x653f1464b3a0, L_0x653f1464b410, L_0x653f1464b4f0;
+L_0x653f1464b7b0 .functor OR 1, v0x653f1464aaa0_0, v0x653f1464ab60_0, L_0x653f1464b120, C4<0>;
+L_0x653f1464b820 .functor OR 1, v0x653f1464aaa0_0, L_0x653f1464b060, L_0x653f1464b120, C4<0>;
+L_0x653f1464b980 .functor OR 1, L_0x653f1464af70, v0x653f1464ab60_0, L_0x653f1464b120, C4<0>;
+L_0x653f1464bab0 .functor OR 1, L_0x653f1464af70, L_0x653f1464b060, L_0x653f1464b120, C4<0>;
+L_0x653f1464bbf0 .functor AND 1, L_0x653f1464b7b0, L_0x653f1464b820, L_0x653f1464b980, L_0x653f1464bab0;
+L_0x653f1464bd30 .functor NOT 1, v0x653f1464ac30_0, C4<0>, C4<0>, C4<0>;
+v0x653f14632bd0_0 .net "A", 0 0, v0x653f1464aaa0_0;  1 drivers
+v0x653f14649db0_0 .net "B", 0 0, v0x653f1464ab60_0;  1 drivers
+v0x653f14649e70_0 .net "C", 0 0, v0x653f1464ac30_0;  1 drivers
+v0x653f14649f10_0 .net "WM", 0 0, L_0x653f1464bab0;  1 drivers
+v0x653f14649fd0_0 .net "Wm", 0 0, L_0x653f1464b4f0;  1 drivers
+v0x653f1464a0e0_0 .net "XM", 0 0, L_0x653f1464b7b0;  1 drivers
+v0x653f1464a1a0_0 .net "Xm", 0 0, L_0x653f1464b1e0;  1 drivers
+v0x653f1464a260_0 .net "YM", 0 0, L_0x653f1464b820;  1 drivers
+v0x653f1464a320_0 .net "Ym", 0 0, L_0x653f1464b3a0;  1 drivers
+v0x653f1464a3e0_0 .net "ZM", 0 0, L_0x653f1464b980;  1 drivers
+v0x653f1464a4a0_0 .net "Zm", 0 0, L_0x653f1464b410;  1 drivers
+v0x653f1464a560_0 .net "fM", 0 0, L_0x653f1464bbf0;  alias, 1 drivers
+v0x653f1464a620_0 .net "fm", 0 0, L_0x653f1464b620;  alias, 1 drivers
+v0x653f1464a6e0_0 .net "fs", 0 0, L_0x653f1464bd30;  alias, 1 drivers
+v0x653f1464a7a0_0 .net "not_A", 0 0, L_0x653f1464af70;  1 drivers
+v0x653f1464a860_0 .net "not_B", 0 0, L_0x653f1464b060;  1 drivers
+v0x653f1464a920_0 .net "not_C", 0 0, L_0x653f1464b120;  1 drivers
+    .scope S_0x653f14632860;
+T_0 ;
+    %vpi_call 2 7 "$dumpfile", "sim/atividade2_tb.vcd" {0 0 0};
+    %vpi_call 2 8 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x653f14632860 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x653f14632860;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464aaa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464ab60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464ac30_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464aaa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464ab60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464ac30_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464aaa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464ab60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464ac30_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464aaa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464ab60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464ac30_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464aaa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464ab60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464ac30_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464aaa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464ab60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464ac30_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464aaa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464ab60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x653f1464ac30_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464aaa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464ab60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x653f1464ac30_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 54 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "src/atividade2_tb.v";
+    "src/atividade2.v";

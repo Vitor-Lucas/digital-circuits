@@ -1,0 +1,78 @@
+$date
+	Fri Apr 24 09:19:43 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module atividade1_tb $end
+$var wire 1 ! fs $end
+$var wire 1 " fm $end
+$var wire 1 # fM $end
+$var reg 1 $ A $end
+$var reg 1 % B $end
+$var reg 1 & C $end
+$scope module uut $end
+$var wire 1 $ A $end
+$var wire 1 % B $end
+$var wire 1 & C $end
+$var wire 1 # fM $end
+$var wire 1 " fm $end
+$var wire 1 ! fs $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0&
+0%
+0$
+1#
+1"
+1!
+$end
+#10
+0"
+0#
+0!
+1&
+#20
+1"
+1#
+1!
+0&
+1%
+#30
+0"
+0#
+0!
+1&
+#40
+1#
+1"
+1!
+0&
+0%
+1$
+#50
+0"
+0#
+0!
+1&
+#60
+1#
+1"
+1!
+0&
+1%
+#70
+0"
+0#
+0!
+1&
+#80
