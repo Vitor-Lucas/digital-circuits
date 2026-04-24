@@ -1,19 +1,43 @@
-# Projeto de Simulação Verilog
+# Aula 02 - Porta Lógica Inversora (NOT)
 
-Este projeto está organizado para manter os arquivos fonte, resultados de simulação e binários de compilação separados e organizados.
+## Descrição
 
-## Estrutura de Pastas
+Este projeto implementa uma **porta lógica inversora (NOT)** em Verilog, que é o componente fundamental da eletrônica digital. A porta inversora recebe um sinal de entrada e produz um sinal de saída com o valor lógico invertido.
 
-Abaixo está a representação visual da hierarquia do projeto considerando um exemplo de um projeto de um inversor lógico:
+### O que é uma Porta NOT?
 
+A porta NOT (inversora) é uma porta lógica que inverte o seu sinal de entrada:
+- Entrada 0 → Saída 1
+- Entrada 1 → Saída 0
 
-projeto/
+## Estrutura do Projeto
+
+```
+aula_02/inversor/
 ├── Makefile            # Script de automação da compilação e simulação
-├── README.md           # Documentação do projeto
-├── src/                # Código-fonte (Input)
-│   ├── inversor.v      # Módulo principal
-│   └── inversor_tb.v   # Testbench
-├── sim/                # Resultados de Simulação (Output)
-│   └── inversor_tb.vcd # Formas de onda para o GTKWave
-└── .outputs/           # Binários Temporários (Hidden)
+├── README              # Este arquivo
+├── src/
+│   ├── inversor.v      # Implementação da porta NOT
+│   └── inversor_tb.v   # Testbench para validação do inversor
+├── sim/
+│   └── inversor_tb.vcd # Arquivo VCD com formas de onda
+└── .outputs/
     └── simulacao.vvp   # Arquivo compilado pelo Icarus Verilog
+```
+
+## Conteúdo dos Arquivos
+
+- **inversor.v**: Módulo que implementa a porta NOT usando atribuição contínua (`assign b = ~a`)
+- **inversor_tb.v**: Testbench que verifica o comportamento da porta invertendo ambos os valores de entrada possíveis (0 e 1)
+
+## Como Executar
+
+```bash
+make all
+```
+
+Para visualizar as formas de onda:
+
+```bash
+gtkwave sim/inversor_tb.vcd
+```

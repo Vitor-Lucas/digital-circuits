@@ -1,19 +1,69 @@
-# Projeto de Simulação Verilog
+# Aula 03 - ELTD10 Projeto - Operações com Bits
 
-Este projeto está organizado para manter os arquivos fonte, resultados de simulação e binários de compilação separados e organizados.
+## Descrição
 
-## Estrutura de Pastas
+Este projeto contém três atividades práticas que exploram operações fundamentais com bits em Verilog:
 
-Abaixo está a representação visual da hierarquia do projeto considerando um exemplo de um projeto de um inversor lógico:
+### Atividade 1: Incrementador de 8 bits
 
+Implementa um módulo que soma 1 a um valor de entrada de 8 bits.
+- **Entrada**: Valor de 8 bits
+- **Saída**: Valor de entrada + 1
+- **Aplicação**: Base para contadores e somadores em circuitos digitais
 
-projeto/
-├── Makefile            # Script de automação da compilação e simulação
-├── README.md           # Documentação do projeto
-├── src/                # Código-fonte (Input)
-│   ├── inversor.v      # Módulo principal
-│   └── inversor_tb.v   # Testbench
-├── sim/                # Resultados de Simulação (Output)
-│   └── inversor_tb.vcd # Formas de onda para o GTKWave
-└── .outputs/           # Binários Temporários (Hidden)
-    └── simulacao.vvp   # Arquivo compilado pelo Icarus Verilog
+### Atividade 2: Representação em Diferentes Bases Numéricas
+
+Demonstra como um mesmo valor binário pode ser representado em múltiplas bases numéricas.
+- **Entrada**: Valor de 32 bits
+- **Saídas**:
+  - Binária
+  - Decimal
+  - Octal
+  - Hexadecimal
+- **Aplicação**: Compreender diferentes representações numéricas em sistemas digitais
+
+### Atividade 3: Extrator de Bits e Corte de Dados
+
+Demonstra como extrair porções de um vetor de bits (slicing).
+- **Entrada**: Valor de 32 bits
+- **Saídas**:
+  - 32 bits (valor completo)
+  - 16 bits menos significativos
+  - 8 bits menos significativos
+  - 4 bits menos significativos
+- **Aplicação**: Processamento de dados e manipulação de bits em arquiteturas digitais
+
+## Estrutura do Projeto
+
+```
+aula_03/ELTD10-Projeto/
+├── Makefile                 # Script de automação
+├── README                   # Este arquivo
+├── src/
+│   ├── atividade1.v        # Incrementador de 8 bits
+│   ├── atividade1_tb.v     # Testbench da atividade 1
+│   ├── atividade2.v        # Representação em bases numéricas
+│   ├── atividade2_tb.v     # Testbench da atividade 2
+│   ├── atividade3.v        # Extrator de bits
+│   └── atividade3_tb.v     # Testbench da atividade 3
+├── sim/
+│   ├── atividade1_tb.vcd   # Formas de onda da atividade 1
+│   ├── atividade2_tb.vcd   # Formas de onda da atividade 2
+│   └── atividade3_tb.vcd   # Formas de onda da atividade 3
+└── .outputs/
+    └── simulacao.vvp       # Arquivo compilado
+```
+
+## Como Executar
+
+```bash
+make all
+```
+
+Para visualizar as formas de onda:
+
+```bash
+gtkwave sim/atividade1_tb.vcd
+gtkwave sim/atividade2_tb.vcd
+gtkwave sim/atividade3_tb.vcd
+```
