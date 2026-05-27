@@ -1,0 +1,99 @@
+# Aula 07 - Somador de 3 Bits com Display de 7 Segmentos
+
+## Descrição
+
+Este projeto integra módulos combinacionais em Verilog para implementar um **somador completo de 3 bits** com **carry-in** e exibir o resultado em um **display de 7 segmentos** da placa de desenvolvimento.
+
+O circuito recebe dois operandos de 3 bits pelas chaves da placa, soma esses valores com um carry de entrada e converte a saída binária de 4 bits para o formato adequado do display.
+
+## Funcionalidade
+
+- **Entradas**:
+    - `sw[2:0]`: primeiro operando de 3 bits
+    - `sw[5:3]`: segundo operando de 3 bits
+    - `sw[6]`: carry-in
+- **Saída**:
+    - `hex0[6:0]`: segmentos do display de 7 segmentos
+
+## Módulos Implementados
+
+### `somador_1b.v`
+
+Implementa um **somador completo de 1 bit**, produzindo:
+- bit de soma (`s`)
+- carry-out (`co`)
+
+### `somador_3b.v`
+
+Encadeia três instâncias do somador de 1 bit para formar um **somador ripple-carry de 3 bits**.
+
+### `bcd_para_7seg.v`
+
+Converte um valor binário de 4 bits para os sinais dos segmentos `A` a `G` do display de 7 segmentos.
+
+### `topo.v`
+
+Módulo principal que conecta:
+- as chaves da placa aos operandos do somador
+- a saída de 4 bits do somador ao conversor para 7 segmentos
+- o resultado ao display `hex0`
+
+## Estrutura do Projeto
+
+```text
+aula_07/
+├── Makefile                 # Automação do fluxo de simulação e Quartus
+├── README                   # Este arquivo
+├── novo_setup_project.tcl   # Script de configuração do projeto Quartus
+├── topo.qpf                 # Projeto Quartus
+├── topo.qsf                 # Configurações e pinagem do projeto
+├── src/
+│   ├── somador_1b.v         # Somador completo de 1 bit
+│   ├── somador_3b.v         # Somador de 3 bits
+│   ├── bcd_para_7seg.v      # Conversor para display de 7 segmentos
+│   ├── topo.v               # Topo do circuito
+│   └── sources.f            # Lista de arquivos-fonte
+├── db/                      # Banco de dados gerado pelo Quartus
+├── incremental_db/          # Arquivos intermediários de compilação
+└── output_files/            # Arquivos finais gerados na síntese
+```
+
+## Conceitos Abordados
+
+- Somador completo de 1 bit
+- Propagação de carry em somadores encadeados
+- Projeto hierárquico com instância de módulos
+- Conversão de saída binária para display de 7 segmentos
+- Fluxo de síntese e implementação no Quartus Prime
+
+## Como Executar
+
+Para gerar ou recriar o projeto Quartus:
+
+```bash
+make project
+```
+
+Para executar o fluxo completo de síntese, fitting, montagem e análise temporal:
+
+```bash
+make synth
+```
+
+Para programar a FPGA pela interface JTAG:
+
+```bash
+make pgm
+```
+
+Para limpar arquivos temporários e artefatos de compilação:
+
+```bash
+make clean
+```
+
+## Observações
+
+- O fluxo principal desta aula é voltado para **síntese em hardware**, não para testbench.
+- O arquivo `sources.f` centraliza os arquivos Verilog usados pelo projeto.
+- Os arquivos `db/`, `incremental_db/` e `output_files/` são gerados pelo Quartus durante a compilação.

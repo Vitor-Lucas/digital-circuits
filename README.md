@@ -13,6 +13,8 @@ Este repositório contém implementações de circuitos digitais e conceitos fun
 | **Aula 02** | Porta Lógica Inversora (NOT) - Introdução a portas lógicas básicas | [aula_02/inversor](aula_02/inversor) |
 | **Aula 03** | ELTD10 Projeto - Operações com Bits (incrementador, representações numéricas, slicing) | [aula_03/ELTD10-Projeto](aula_03/ELTD10-Projeto) |
 | **Aula 05** | Introdução à Álgebra Booleana e Portas Lógicas (formas canônicas e implementação com portas) | [aula_05](aula_05) |
+| **Aula 07** | Somador de 3 bits com carry-in e exibição do resultado em display de 7 segmentos | [aula_07](aula_07) |
+| **Aula 08** | Codificador, decodificador e conversor lógico com integração em display de 7 segmentos | [aula_08](aula_08) |
 
 ## 🛠️ Ferramentas Utilizadas
 
@@ -70,6 +72,17 @@ projeto/
 - **Atividade 1**: Formas canônicas (SOP, POS, forma simplificada) usando operadores
 - **Atividade 2**: Implementação com portas lógicas instantiadas (NOT, AND, OR)
 
+### Aula 07: Somadores e Display
+- Implementação de um somador completo de 1 bit
+- Encadeamento para formar um somador de 3 bits
+- Conversão do resultado para display de 7 segmentos
+- Integração do circuito para síntese em FPGA
+
+### Aula 08: Codificação e Conversão
+- **Atividade 1**: Codificador decimal para binário em 4 bits
+- **Atividade 2**: Decodificador binário para 10 saídas
+- **Atividade 3**: Conversor lógico com apresentação em display de 7 segmentos
+
 
 ## 📝 Notas
 
@@ -79,4 +92,4 @@ projeto/
 
 ---
 
-**Última atualização**: Abril de 2026
+**Última atualização**: Maio de 2026

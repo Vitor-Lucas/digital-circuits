@@ -1,0 +1,69 @@
+|topo
+sw[0] => sw[0].IN1
+sw[1] => sw[1].IN1
+sw[2] => sw[2].IN1
+sw[3] => sw[3].IN1
+hex0[0] <= bcd_para_7seg:dec.A
+hex0[1] <= bcd_para_7seg:dec.B
+hex0[2] <= bcd_para_7seg:dec.C
+hex0[3] <= bcd_para_7seg:dec.D
+hex0[4] <= bcd_para_7seg:dec.E
+hex0[5] <= bcd_para_7seg:dec.F
+hex0[6] <= bcd_para_7seg:dec.G
+
+
+|topo|conversor:conv
+H => D.IN0
+H => C.IN0
+H => A.IN0
+H => C.IN0
+H => A.IN0
+G => D.IN1
+G => C.IN1
+G => A.IN0
+G => C.IN1
+G => B.IN0
+G => A.IN1
+F => B.IN1
+F => A.IN1
+F => A.IN1
+F => A.IN1
+E => C.IN1
+E => A.IN1
+E => A.IN1
+E => B.IN1
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topo|bcd_para_7seg:dec
+a => G.IN0
+b => G.IN0
+b => E.IN0
+b => G.IN1
+b => F.IN0
+c => G.IN1
+c => F.IN1
+c => F.IN0
+c => G.IN1
+c => E.IN1
+d => G.IN1
+d => F.IN1
+d => F.IN1
+d => E.IN1
+d => D.IN1
+d => B.IN1
+d => D.IN1
+d => C.IN1
+d => B.IN1
+G <= G.DB_MAX_OUTPUT_PORT_TYPE
+F <= F.DB_MAX_OUTPUT_PORT_TYPE
+E <= E.DB_MAX_OUTPUT_PORT_TYPE
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
