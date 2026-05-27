@@ -1,27 +1,107 @@
-# Projeto de Simulação Verilog
+# Aula 08 - Codificador, Decodificador e Conversor para Display
 
-Este projeto está organizado para manter os arquivos fonte, resultados de simulação e binários de compilação separados e organizados.
+## Descrição
 
-## Estrutura de Pastas
+Esta aula explora circuitos combinacionais de **codificação**, **decodificação** e **conversão de código**, integrando esses blocos a um display de 7 segmentos.
 
-Abaixo está a representação visual da hierarquia do projeto considerando um exemplo de um projeto de um inversor lógico:
+O projeto inclui módulos independentes para estudo e testbench, além de um módulo de topo preparado para síntese em FPGA.
 
+## Atividades Desenvolvidas
 
-projeto/
-├── Makefile            # Script de automação da compilação e simulação
-├── README.md           # Documentação do projeto
-├── setup_project.tcl   # Arquivo de configuração de projetos Quartus Prime
-├── src/                # Código-fonte (Input)
-│   ├── inversor.v      # Módulo principal
-│   └── inversor_tb.v   # Testbench
-├── sim/                # Resultados de Simulação (Output)
-│   └── inversor_tb.vcd # Formas de onda para o GTKWave
-└── .outputs/           # Binários Temporários (Hidden)
-    └── simulacao.vvp   # Arquivo compilado pelo Icarus Verilog
-    
-    
-# Fluxo de projeto com o quartus
-1. A pasta do projeto deve ter o mesmo nome do arquivo.v.
-2. O nome do módulo dentro do arquivo.v deve ser igual ao nome do arquivo.
-3. O arquivo setup_project.tcl deve ser configurado para realizar a pinagem da placa. Os pinos estão todos comentados e com os nomes padronizados do manual. Caso usem outros nomes de pinos, basta alterar.
-4. Apos rodar o comando make project, seram criados os arquivos de projeto projeto.qpf, projeto.qsf, e as pastas db, incremental_db e output_files na pasta raiz.
+### Codificador decimal para binário
+
+O módulo `codificador.v` recebe uma entrada de 10 bits em formato one-hot e gera uma saída binária de 4 bits correspondente ao valor ativado.
+
+### Decodificador binário para decimal
+
+O módulo `decodificador.v` recebe 4 bits de entrada e produz uma saída de 10 linhas, representando uma codificação decimal expandida.
+
+### Conversor e exibição em 7 segmentos
+
+O módulo `conversor.v` transforma as entradas `E`, `F`, `G` e `H` em um conjunto de 4 bits `A`, `B`, `C` e `D`, que em seguida são enviados ao módulo `bcd_para_7seg` para apresentação no display.
+
+### Integração no módulo `topo.v`
+
+O topo conecta:
+- `sw[3:0]` como entradas do conversor
+- a saída convertida ao decodificador de 7 segmentos
+- `hex0[6:0]` como saída final para o display da placa
+
+## Estrutura do Projeto
+
+```text
+aula_08/
+├── Makefile                 # Automação do fluxo de simulação e Quartus
+├── README                   # Este arquivo
+├── novo_setup_project.tcl   # Script de configuração do Quartus
+├── topo.qpf                 # Projeto Quartus
+├── topo.qsf                 # Configurações e pinagem
+├── src/
+│   ├── codificador.v        # Codificador decimal para 4 bits
+│   ├── codificador_tb.v     # Testbench do codificador
+│   ├── decodificador.v      # Decodificador de 4 bits para 10 saídas
+│   ├── decodificador_tb.v   # Testbench do decodificador
+│   ├── conversor.v          # Conversor lógico entre códigos
+│   ├── bcd_para_7seg.v      # Conversor para display de 7 segmentos
+│   ├── topo.v               # Integração final para a FPGA
+│   └── sources.f            # Lista de arquivos-fonte do projeto
+├── db/                      # Banco de dados gerado pelo Quartus
+├── incremental_db/          # Arquivos intermediários da compilação
+└── output_files/            # Resultados finais da síntese
+```
+
+## Conceitos Abordados
+
+- Codificador decimal para binário
+- Decodificador binário para múltiplas saídas
+- Conversão entre diferentes representações digitais
+- Projeto modular em Verilog
+- Testbench para validação funcional
+- Integração com display de 7 segmentos
+- Fluxo de síntese no Quartus Prime
+
+## Como Executar
+
+Para recriar a estrutura do projeto no Quartus:
+
+```bash
+make project
+```
+
+Para executar o fluxo de síntese e gerar os arquivos de programação:
+
+```bash
+make synth
+```
+
+Para programar a placa:
+
+```bash
+make pgm
+```
+
+Para limpar os artefatos gerados:
+
+```bash
+make clean
+```
+
+## Simulação dos Testbenches
+
+Os arquivos `codificador_tb.v` e `decodificador_tb.v` permitem validar separadamente os módulos principais. Uma forma direta de simulá-los com Icarus Verilog é:
+
+```bash
+iverilog -o .outputs/codificador_tb.vvp src/codificador.v src/codificador_tb.v
+vvp .outputs/codificador_tb.vvp
+
+iverilog -o .outputs/decodificador_tb.vvp src/decodificador.v src/decodificador_tb.v
+vvp .outputs/decodificador_tb.vvp
+```
+
+Após a execução, os arquivos VCD podem ser abertos no GTKWave.
+
+## Observações
+
+- O projeto mistura estudo de módulos combinacionais isolados com integração final em hardware.
+- O módulo `topo.v` utiliza `conversor.v` e `bcd_para_7seg.v` para dirigir o display de 7 segmentos.
+- Os diretórios `db/`, `incremental_db/` e `output_files/` refletem uma compilação já realizada no Quartus.
