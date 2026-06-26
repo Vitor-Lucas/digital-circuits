@@ -1,0 +1,238 @@
+|topo
+sw[0] => sw[0].IN1
+sw[1] => sw[1].IN1
+sw[2] => sw[2].IN1
+sw[3] => sw[3].IN1
+sw[4] => sw[4].IN1
+sw[5] => sw[5].IN1
+hex0[0] <= bcd_para_7seg:bcd0.A
+hex0[1] <= bcd_para_7seg:bcd0.B
+hex0[2] <= bcd_para_7seg:bcd0.C
+hex0[3] <= bcd_para_7seg:bcd0.D
+hex0[4] <= bcd_para_7seg:bcd0.E
+hex0[5] <= bcd_para_7seg:bcd0.F
+hex0[6] <= bcd_para_7seg:bcd0.G
+hex1[0] <= bcd_para_7seg:bcd1.A
+hex1[1] <= bcd_para_7seg:bcd1.B
+hex1[2] <= bcd_para_7seg:bcd1.C
+hex1[3] <= bcd_para_7seg:bcd1.D
+hex1[4] <= bcd_para_7seg:bcd1.E
+hex1[5] <= bcd_para_7seg:bcd1.F
+hex1[6] <= bcd_para_7seg:bcd1.G
+hex2[0] <= bcd_para_7seg:bcd2.A
+hex2[1] <= bcd_para_7seg:bcd2.B
+hex2[2] <= bcd_para_7seg:bcd2.C
+hex2[3] <= bcd_para_7seg:bcd2.D
+hex2[4] <= bcd_para_7seg:bcd2.E
+hex2[5] <= bcd_para_7seg:bcd2.F
+hex2[6] <= bcd_para_7seg:bcd2.G
+hex3[0] <= bcd_para_7seg:bcd3.A
+hex3[1] <= bcd_para_7seg:bcd3.B
+hex3[2] <= bcd_para_7seg:bcd3.C
+hex3[3] <= bcd_para_7seg:bcd3.D
+hex3[4] <= bcd_para_7seg:bcd3.E
+hex3[5] <= bcd_para_7seg:bcd3.F
+hex3[6] <= bcd_para_7seg:bcd3.G
+
+
+|topo|demux44a:demux
+Y[0] => Y[0].IN1
+Y[1] => Y[1].IN1
+Y[2] => Y[2].IN1
+Y[3] => Y[3].IN1
+S[0] => S[0].IN4
+S[1] => S[1].IN4
+dados_a[0] <= demux14a:demux_a.A
+dados_a[1] <= demux14a:demux_b.A
+dados_a[2] <= demux14a:demux_c.A
+dados_a[3] <= demux14a:demux_d.A
+dados_b[0] <= demux14a:demux_a.B
+dados_b[1] <= demux14a:demux_b.B
+dados_b[2] <= demux14a:demux_c.B
+dados_b[3] <= demux14a:demux_d.B
+dados_c[0] <= demux14a:demux_a.C
+dados_c[1] <= demux14a:demux_b.C
+dados_c[2] <= demux14a:demux_c.C
+dados_c[3] <= demux14a:demux_d.C
+dados_d[0] <= demux14a:demux_a.D
+dados_d[1] <= demux14a:demux_b.D
+dados_d[2] <= demux14a:demux_c.D
+dados_d[3] <= demux14a:demux_d.D
+
+
+|topo|demux44a:demux|demux14a:demux_a
+Y => A.IN0
+Y => C.IN0
+S[0] => B.IN1
+S[0] => D.IN1
+S[0] => A.IN1
+S[0] => C.IN1
+S[1] => C.IN1
+S[1] => A.IN1
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topo|demux44a:demux|demux14a:demux_b
+Y => A.IN0
+Y => C.IN0
+S[0] => B.IN1
+S[0] => D.IN1
+S[0] => A.IN1
+S[0] => C.IN1
+S[1] => C.IN1
+S[1] => A.IN1
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topo|demux44a:demux|demux14a:demux_c
+Y => A.IN0
+Y => C.IN0
+S[0] => B.IN1
+S[0] => D.IN1
+S[0] => A.IN1
+S[0] => C.IN1
+S[1] => C.IN1
+S[1] => A.IN1
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topo|demux44a:demux|demux14a:demux_d
+Y => A.IN0
+Y => C.IN0
+S[0] => B.IN1
+S[0] => D.IN1
+S[0] => A.IN1
+S[0] => C.IN1
+S[1] => C.IN1
+S[1] => A.IN1
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topo|bcd_para_7seg:bcd0
+a => G.IN0
+b => G.IN0
+b => E.IN0
+b => G.IN1
+b => F.IN0
+c => G.IN1
+c => F.IN1
+c => F.IN0
+c => G.IN1
+c => E.IN1
+d => G.IN1
+d => F.IN1
+d => F.IN1
+d => E.IN1
+d => D.IN1
+d => B.IN1
+d => D.IN1
+d => C.IN1
+d => B.IN1
+G <= G.DB_MAX_OUTPUT_PORT_TYPE
+F <= F.DB_MAX_OUTPUT_PORT_TYPE
+E <= E.DB_MAX_OUTPUT_PORT_TYPE
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topo|bcd_para_7seg:bcd1
+a => G.IN0
+b => G.IN0
+b => E.IN0
+b => G.IN1
+b => F.IN0
+c => G.IN1
+c => F.IN1
+c => F.IN0
+c => G.IN1
+c => E.IN1
+d => G.IN1
+d => F.IN1
+d => F.IN1
+d => E.IN1
+d => D.IN1
+d => B.IN1
+d => D.IN1
+d => C.IN1
+d => B.IN1
+G <= G.DB_MAX_OUTPUT_PORT_TYPE
+F <= F.DB_MAX_OUTPUT_PORT_TYPE
+E <= E.DB_MAX_OUTPUT_PORT_TYPE
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topo|bcd_para_7seg:bcd2
+a => G.IN0
+b => G.IN0
+b => E.IN0
+b => G.IN1
+b => F.IN0
+c => G.IN1
+c => F.IN1
+c => F.IN0
+c => G.IN1
+c => E.IN1
+d => G.IN1
+d => F.IN1
+d => F.IN1
+d => E.IN1
+d => D.IN1
+d => B.IN1
+d => D.IN1
+d => C.IN1
+d => B.IN1
+G <= G.DB_MAX_OUTPUT_PORT_TYPE
+F <= F.DB_MAX_OUTPUT_PORT_TYPE
+E <= E.DB_MAX_OUTPUT_PORT_TYPE
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topo|bcd_para_7seg:bcd3
+a => G.IN0
+b => G.IN0
+b => E.IN0
+b => G.IN1
+b => F.IN0
+c => G.IN1
+c => F.IN1
+c => F.IN0
+c => G.IN1
+c => E.IN1
+d => G.IN1
+d => F.IN1
+d => F.IN1
+d => E.IN1
+d => D.IN1
+d => B.IN1
+d => D.IN1
+d => C.IN1
+d => B.IN1
+G <= G.DB_MAX_OUTPUT_PORT_TYPE
+F <= F.DB_MAX_OUTPUT_PORT_TYPE
+E <= E.DB_MAX_OUTPUT_PORT_TYPE
+D <= D.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+B <= B.DB_MAX_OUTPUT_PORT_TYPE
+A <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
